@@ -20,9 +20,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./project/techtrends/
+          file: ./project/techtrends/Dockerfile
           tags: bryansoftdev/techtrends:latest
           push: true
