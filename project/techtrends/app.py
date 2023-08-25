@@ -57,7 +57,8 @@ def health():
 @app.route('/metrics')
 def metrics():
     connection = get_db_connection()
-    post_count = connection.execute('SELECT count(*) FROM posts').fetchone()[0]
+    post_count = connection.execute('SELECT count(*) FROM posts').fetchone()
+    connection.close()
     return jsonify(db_connection_count=db_connection_count, post_count=post_count), 200
 
 # Define the post creation functionality 
