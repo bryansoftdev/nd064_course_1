@@ -1,11 +1,42 @@
 ## Docker commands used to build the application 
-# TODO: insert the docker build command
+docker build -t techtrends ./techtrends
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run --name techtrends -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker logs techtrends
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+PS C:\Users\Bryan\repos\nd064_course_1\project\techtrends> docker logs techtrends
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:52:17] "GET /metrics HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:52:17] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:52:29] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:52:29] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:app:08/25/2023, 18:52:30, Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:52:30] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:52:30] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:36] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:36] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/25/2023, 18:56:37, Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:37] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:37] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:42] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:42] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/25/2023, 18:56:44, Article "eraafsdfas" created!
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:44] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:44] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:44] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:52] "GET /metrics HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:56] "GET /health HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:56:58] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:57:41] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [25/Aug/2023 18:57:41] "GET /static/css/main.css HTTP/1.1" 304 -
