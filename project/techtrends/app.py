@@ -1,8 +1,13 @@
 import sqlite3
-
+from datetime import datetime
+import logging
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 
+# Define the Flask application
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your secret key'
+logging.basicConfig(level=logging.DEBUG)
 db_connection_count = 0
 
 # Function to get a database connection.
@@ -22,10 +27,6 @@ def get_post(post_id):
     connection.close()
     return post
 
-# Define the Flask application
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your secret key'
-
 # Define the main route of the web application 
 @app.route('/')
 def index():
@@ -40,13 +41,16 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.info(f'{datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}, Article ID: {post_id} not found!')
       return render_template('404.html'), 404
     else:
+      app.logger.info(f'{datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}, Article "{post["title"]}" retrieved!')
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.info(f'{datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}, About Us page retrieved!')
     return render_template('about.html')
 
 # Define the health check
@@ -78,7 +82,7 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-
+            app.logger.info(f'{datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}, Article "{title}" created!')
             return redirect(url_for('index'))
 
     return render_template('create.html')
