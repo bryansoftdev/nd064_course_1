@@ -1,4 +1,4 @@
-name: TechTrends Docker Build
+name: TechTrends - Package with Docker
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Login to DockerHub
         uses: docker/login-action@v2
@@ -22,7 +22,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./project/techtrends/
+          context: ./project/
           file: ./project/techtrends/Dockerfile
           tags: bryansoftdev/techtrends:latest
           push: true
