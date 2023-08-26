@@ -64,7 +64,7 @@ def about():
 # Define the health check
 @app.route('/healthz')
 def health():
-    return jsonify(result="OK - healthy"), 200
+    return jsonify(result="OK - healthy test!"), 200
 
 # Define the metrics endpoint
 @app.route('/metrics')
