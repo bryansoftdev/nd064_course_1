@@ -3,12 +3,20 @@ from datetime import datetime
 import logging
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
+import sys
 
 # Define the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 logging.basicConfig(level=logging.DEBUG)
 db_connection_count = 0
+
+# set logger to handle STDOUT and STDERR 
+stdout_handler = logging.StreamHandler(sys.stdout)  # stdout handler
+stderr_handler = logging.StreamHandler(sys.stderr)  # stderr handler
+handlers = [stderr_handler, stdout_handler]
+logging.basicConfig(level=logging.DEBUG, handlers=handlers)
+
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
