@@ -7,7 +7,7 @@ replicaCount: 5
 resources:
   requests: 
     memory: "128Mi"
-    CPU: "350m"
+    cpu: "350m"
   limits: 
     memory: "256Mi"
-    CPU: "500m"
+    cpu: "500m"

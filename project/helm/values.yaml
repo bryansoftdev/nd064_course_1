@@ -12,10 +12,10 @@ replicaCount: 1
 resources:
   requests: 
     memory: "64Mi"
-    CPU: "250m"
+    cpu: "250m"
   limits: 
     memory: "128Mi"
-    CPU: "500m"
+    cpu: "500m"
 containerPort: 3111
 livenessProbe:
   path: /healthz
