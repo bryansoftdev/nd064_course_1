@@ -7,7 +7,7 @@ spec:
   source:
     repoURL: 'https://github.com/bryansoftdev/nd064_course_1.git'
     targetRevision: HEAD
-    path: helm/
+    path: project/helm/
     helm:
       valueFiles:
         - values-prod.yaml
