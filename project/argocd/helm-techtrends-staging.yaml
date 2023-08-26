@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: techtrends-staging
+  namespace: argocd
+spec:
+  source:
+    repoURL: 'https://github.com/bryansoftdev/nd064_course_1.git'
+    targetRevision: HEAD
+    path: helm/
+    helm:
+      valueFiles:
+        - values-staging.yaml
+  destination:
+    namespace: staging
+    server: https://kubernetes.default.svc
+  project: default
